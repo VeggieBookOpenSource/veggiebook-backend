@@ -1,0 +1,378 @@
+{% load qhmobile_extras %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"
+        "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        @font-face {
+            font-family: Parry;
+            src: url("/static/fonts/Parry-Normal.otf");
+        }
+        @font-face {
+            font-family: Parry;
+            font-weight: bold;
+            src: url("/static/fonts/Parry-Bold.otf");
+        }
+        @font-face {
+            font-family: Parry;
+            font-style: italic;
+            src: url("/static/fonts/Parry-NormalItalic.otf");
+        }
+
+        @font-face {
+            font-family: ParryGrotesque;
+            src: url("/static/fonts/ParryGrotesque-Normal.otf");
+        }
+        @font-face {
+            font-family: ParryGrotesque;
+            font-weight: bold;
+            src: url("/static/fonts/ParryGrotesque-Bold.otf");
+        }
+        @font-face {
+            font-family: ParryGrotesque;
+            font-style: italic;
+            src: url("/static/fonts/ParryGrotesque-NormalItalic.otf");
+        }
+
+        #recipe {
+            margin-right: auto;
+            margin-left: auto;
+            font-family: ParryGrotesque, Verdana, sans-serif;
+            position: relative;
+            width: 800px;
+            font-size: 15px;
+        }
+
+        #recipe h1, h2 {
+            color: #ffffff;
+            background-color: #62b149;
+            border-radius: 5px 10px 0px 0px;
+            padding-top: 3px;
+            padding-left: 6px;
+            padding-right: 6px;
+            margin-bottom: 0px;
+            font-family: Parry, Times, serif;
+
+
+        }
+
+        #recipe h1.title {
+            font-size: 32px;
+            text-align: left;
+            width: 768px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 15px;
+            font-weight: normal;
+            padding-right: 16px;
+            padding-left: 16px;
+            padding-top: 16px;
+            padding-bottom: 4px;
+            float: left;
+            clear: left;
+            margin-top: 0px;
+
+        }
+
+        #recipe h2.subtitle {
+            color: #000000;
+            background-color: #62b149;
+            margin: 0px;
+            padding: 0px;
+            padding-left: 30px;
+            padding-right: 30px;
+            font-size: 9px;
+            font-style: italic;
+            display: none;
+        }
+
+        #recipe img.recipeImage {
+            margin-top: 15px;
+            margin-right: 10px;
+            float: left;
+            width: 273px;
+        }
+
+
+        #recipe h2.sectionHeader {
+            float: left;
+            clear: left;
+            font-family: Parry, Times, serif;
+            font-size: 1.4em;
+            font-weight: normal;
+        }
+
+        #recipe .section {
+            float: left;
+            clear: left;
+            padding: 0px;
+            margin: 0px;
+            width: 810px;
+            font-size: 15px;
+            border-color: #62b149;
+            border-style: solid;
+            border-width: 1.5px;
+
+        }
+
+
+
+
+
+        #recipe .ingredientLeft {
+            float: left;
+            clear: left;
+            margin: .5em 2em;
+            padding: 0em;
+            width: 40%;
+
+        }
+
+        #recipe .ingredientRight {
+            float: left;
+            margin: .5em 2em;
+            padding: 0em;
+            width: 40%;
+
+
+        }
+
+
+        #recipe ul.section {
+            float: left;
+            clear: left;
+            width: 810px;
+            font-size: 15px;
+
+
+
+        }
+
+        #recipe li {
+            padding-bottom: 6px;
+            padding-top: 6px;
+            margin-left: 2px;
+            margin-right: 2px;
+            cursor: pointer;
+            font-size: 15px;
+            color: #62b149;
+        }
+
+        #recipe div.annotations {
+            float: left;
+            clear: left;
+            padding: 0px;
+            margin: 0px;
+            font-family: Parry, Times, serif;
+            font-size: 1.3em;
+            font-weight: normal;
+            color: #ffffff;
+
+        }
+
+        #recipe div.annotations div{
+            float: left;
+            margin-bottom: 0px;
+            padding-top: 2px;
+            padding-bottom: 0px;
+            padding-left: 4px;
+            padding-right: 4px;
+            white-space:nowrap;
+        }
+
+        #recipe div.annotations img{
+            float: left;
+            height: 28px;
+            margin-bottom: 0px;
+            padding: 0px;
+        }
+
+        #recipe table.section {
+            padding: 2px;
+            font-size: 15px;
+            width: 100%;
+
+        }
+
+        #recipe table.section tr td {
+            background-color: #f5f3e4;
+
+        }
+
+        #recipe table.section tr td.heading {
+            width: 40%;
+            background-color: #e0ebd8;
+            font-family: Parry, Times, serif;
+        }
+
+        .topRow {
+            float: left;
+            clear: left;
+            overflow: hidden;
+            width: 800px;
+        }
+
+        .container {
+            float: left;
+            clear: left;
+            overflow: hidden;
+            width: 800px;
+            border-color: #62b149;
+            border-style: solid;
+            border-width: 1.5px;
+
+        }
+
+        .rightFloatSection{
+            float: right;
+            margin-left: 10px;
+            width: 506px;
+
+        }
+
+        .leftFloatClearSection{
+            float: left;
+            clear: left;
+            width: 800px;
+
+        }
+
+        #recipe ol
+        {
+
+            width: 800px;
+
+        }
+
+        #recipe .leftOL {
+            float: left;
+            clear: left;
+            width: 40%;
+
+        }
+
+        #recipe .rightOL {
+            float: left;
+            width: 40%;
+
+
+        }
+
+
+        .listContent{
+            color: #000000;
+            font-family: ParryGrotesque, Geneva, sans-serif;
+            font-weight: normal;
+        }
+
+        #recipe img.bottomImage {
+            margin-top: 8px;
+            margin-right: 10px;
+            float: left;
+            height: 130px;
+        }
+    </style>
+    <title>{{ recipe.title.en }}</title>
+</head>
+<body>
+<div id="recipe">
+    <div  class="annotations">
+        {% for annotation in annotations %}
+            <div style="background: #{{ annotation.color }}">{{ annotation.text.es }}</div>
+        {% endfor %}
+    </div>
+
+    <h1 class="title">{{ recipe.title.es }} </h1>
+
+
+    <div class="topRow">
+    <img class="recipeImage"  src="{{ recipe.defaultPhoto.photo.img500.url }}"/>
+
+    <div class="rightFloatSection">
+    <h2 class="sectionHeader">En Resumen</h2>
+    <table class="section">
+        <tr>
+            <td class="heading">Tiempo de preparaci&oacute;n:</td>
+            <td>{{ recipe.timeToPrepare.es }}</td>
+        </tr>
+        <tr>
+            <td class="heading">Tiempo para cocinar:</td>
+            <td>{{ recipe.timeToCook.es }}</td>
+        </tr>
+        <tr>
+            <td class="heading">Porciones:</td>
+            <td>{{ recipe.servings.es }}</td>
+        </tr>
+        <tr>
+            <td class="heading">&iquest;Se puede hacer por adelantado?</td>
+            <td> {{ recipe.canBeMadeAhead.es }}</td>
+        </tr>
+        <tr>
+            <td class="heading">&iquest;Se puede congelar?</td>
+            <td>{{ recipe.canBeFrozen.es }}</td>
+        </tr>
+        <tr>
+            <td class="heading">&iquest;Se puede guardar lo que sobre?</td>
+            <td>{{ recipe.goodForLeftovers.es }}</td>
+        </tr>
+    </table>
+
+    </div>
+    </div>
+
+
+
+{#    <ul class="annotations">#}
+{#        {% for annotation in annotations %}#}
+{#            <li><img src="{{ annotation.en_img.img100.url }}"/></li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+
+    <div class="leftFloatClearSection">
+    <h2 class="sectionHeader">Ingredientes</h2>
+
+    <div class="container">
+        <ul class="ingredientLeft">
+            {% for i in recipe.recipeingredient_set.all|firsthalf %}
+                <li><span class="listContent">{{ i.content.es }}</span></li>
+            {% endfor %}
+        </ul>
+        <ul class="ingredientRight">
+            {% for i in recipe.recipeingredient_set.all|secondhalf %}
+                <li><span class="listContent">{{ i.content.es }}</span></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    </div>
+
+
+    <h2 class="sectionHeader">Instrucciones</h2>
+    <div class="container">
+        <ol class="leftOL">
+        {% for s in recipe.getStepAndNotesList|firsthalf %}
+            <li><span class="listContent">{{ s.content.es }}</span></li>
+            {% if forloop.last %}
+        </ol>
+        <ol class="rightOL" start="{{ forloop.counter|add:1 }}">
+            {% endif %}
+        {% endfor %}
+        {% for s in recipe.getStepAndNotesList|secondhalf %}
+            <li><span class="listContent">{{ s.content.es }}</span></li>
+        {% endfor %}
+        </ol>
+     </div>
+
+    {% if recipe.recipephoto_set.count > 1 %}
+        {% for photo in recipe.recipephoto_set.all %}
+           <img class="bottomImage" src="{{ photo.photo.img200.url }}"/>
+
+        {% endfor %}
+    {% endif %}
+    <br>&nbsp
+</div>
+</body>
+</html>
+
+

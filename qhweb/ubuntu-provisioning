@@ -1,0 +1,7 @@
+#!/bin/bash
+sudo apt-get -y install python-pip python-dev build-essential git python-django nginx python-setuptools python-mysqldb  mysql-client supervisor memcached rabbitmq-server libjpeg8-dev
+sudo apt-get -y install openssl xorg libssl-dev libfontconfig python-django-south zip
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+sudo pip install -r $DIR/requirements.txt
+mkdir -p $DIR/django_logs
+

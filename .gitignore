@@ -1,0 +1,4 @@
+*.pyc
+.idea
+local-settings.ini
+qhweb/data/reports/*.csv

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"
+        "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=620" />
+    <style>
+
+        @font-face {
+            font-family: Parry;
+            src: url("/static/fonts/Parry-Normal.otf");
+        }
+        @font-face {
+            font-family: Parry;
+            font-weight: bold;
+            src: url("/static/fonts/Parry-Bold.otf");
+        }
+        @font-face {
+            font-family: Parry;
+            font-style: italic;
+            src: url("/static/fonts/Parry-NormalItalic.otf");
+        }
+
+        @font-face {
+            font-family: ParryGrotesque;
+            src: url("/static/fonts/ParryGrotesque-Normal.otf");
+        }
+        @font-face {
+            font-family: ParryGrotesque;
+            font-weight: bold;
+            src: url("/static/fonts/ParryGrotesque-Bold.otf");
+        }
+        @font-face {
+            font-family: ParryGrotesque;
+            font-style: italic;
+            src: url("/static/fonts/ParryGrotesque-NormalItalic.otf");
+        }
+
+        #cover {
+            width: 800px;
+            height: 1042px;
+            margin: auto;
+            position: relative;
+        }
+
+        #cover:after {
+            position: absolute;
+            content: " ";
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 107px;
+            border-radius: 10px 24px 0px 0px;
+            background-color: #62b149;
+            z-index: -1;
+
+        }
+
+        #cover:before {
+            position: absolute;
+            content: " ";
+            left: 0px;
+            top: 107px;
+            width: 100%;
+            height: 935px;
+            background-color: #e2e4e5;
+            z-index: -1;
+        }
+
+        #decorator{
+            position: absolute;
+            content: " ";
+            left: 0px;
+            top: 523px;
+            width: 100%;
+            height: 137px;
+            background-color: #c8debf;
+            z-index: -1;
+        }
+
+        #logo {
+            position: absolute;
+            left: 18px;
+            top: 15px;
+            height: 80px;
+        }
+        
+        #coverImage{
+            position: absolute;
+            left: 210px;
+            top: 407px;
+
+
+        }
+
+        #coverImage img{
+            height: 371px;
+            width: 371px;
+
+        }
+
+        #title {
+            font-family: Parry, Times, serif;
+            font-size: 80px;
+            position: absolute;
+            top:  156px;
+            left: 100px;
+            width: 600px;
+            text-align: center;
+            color: #5e5f61;
+        }
+
+
+
+        #createdFor{
+            font-family: ParryGrotesque, Times, serif;
+            font-weight: bold;
+            font-size: 30px;
+            text-align: center;
+            color: #62b149;
+            margin: 10px;
+        }
+
+        #pantry {
+            font-family: Parry, Times, serif;
+            font-style: italic;
+            font-size: 24px;
+            position: absolute;
+            top:  974px;
+            left: 0px;
+            width: 100%;
+            text-align: center;
+            color: #5e5f61;
+        }
+
+        #fsimage{
+            position: absolute;
+            top: 10px;
+            left: 600px;
+
+        }
+
+        #fsimage img{
+             height: 90px;
+        }
+
+    </style>
+    <title>{{ title }}</title>
+</head>
+<body>
+<div id="cover">
+    <img id="logo" src="/static/img/VB_logo_reversed_es.png" />
+    <div id="title">
+        {{ title }}
+        {% if name %}
+            <div id="createdFor">Recetas y Sugerencias Elegidas por {{ name }}</div>
+        {% endif %}
+    </div>
+
+    <div id="coverImage">
+        <img src="{{ cover_image_url }}" />
+    </div>
+    {% if name %}
+     <div id="createdFor">Recetas y Sugerencias Elegidas por {{ name }}</div>
+    {% endif %}
+
+
+    {% if pantryName %}
+    <div id="pantry">Un servicio de {{ pantryName }}</div>
+    {% endif %}
+    <div id="decorator"> </div>
+    <div id="fsimage"><img src="{{ fsImgUrl }}"></div>
+</div>
+</body>
+</html>

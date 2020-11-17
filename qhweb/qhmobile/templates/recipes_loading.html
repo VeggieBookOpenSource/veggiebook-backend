@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"
+        "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+<meta name="viewport" content="width=320"/>
+<style>
+#rloading {
+    margin-left: 10px;
+    width: 300px;
+    font-family: sans-serif;
+    position: relative;
+    font-size: 16px;
+}
+
+p {
+    width: inherit;
+}
+
+
+.demo
+{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+
+}
+
+.inline {
+    height: 1.1em;
+}
+
+
+
+li {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0em;
+    margin-right: 0em;
+}
+</style>
+
+
+</head>
+<body>
+<div id="rloading">
+    <h4>
+        {% if language == 'es'%}
+        Estamos adquiriendo sus recetas.
+        {% else %}
+        We are getting your recipes.
+    {% endif %}
+    </h4>
+
+
+    <h4>
+        {% if language == 'es'%}
+        Usted puede revisar cada receta e indicar si <b>LA QUIERE</b> o <b>NO LA QUIERE.</b>
+        {% else %}
+        You can review each recipe and <b>KEEP</b> or <b>DROP</b> it.
+        {% endif %}
+    </h4>
+
+
+</div>
+
+</body>
+</html>

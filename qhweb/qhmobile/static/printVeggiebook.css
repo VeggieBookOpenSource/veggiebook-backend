@@ -1,0 +1,171 @@
+#recipe {
+    width: 750px;
+    font-family: sans-serif;
+    position: relative;
+}
+
+#recipe h1 {
+    color: #ffffff;
+    background-color: #84BC4A;
+    border-radius: 12px 12px 0px 0px;
+    padding-top: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-bottom: 0px;
+}
+
+#recipe h1.title {
+    font-size: 20px;
+    width: 738px;
+    text-align: center;
+
+}
+
+#recipe h2.subtitle {
+    color: #000000;
+    background-color: #84BC4A;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 12px;
+    font-style: italic;
+}
+
+#recipe img.recipeImage {
+    width: 744;
+    height: 200px;
+}
+
+#recipe h1.sectionHeader {
+    float: left;
+    clear: left;
+    font-size: 14px;
+}
+
+#recipe .section {
+    float: left;
+    clear: left;
+    border-color: #84BC4A;
+    border-style: solid;
+    border-radius: 0px 9px 9px 9px;
+    padding: 0px;
+    margin: 0px;
+    width: 744px;
+    font-size: 12px;
+}
+
+#recipe .isection {
+    float: left;
+    clear: left;
+    border-color: #84BC4A;
+    border-style: solid;
+    border-radius: 0px 9px 9px 9px;
+    padding: 0px;
+    margin: 0px;
+    width: 300px;
+    font-size: 12px;
+}
+
+#recipe .ingredientLeft {
+    float: left;
+    clear: left;
+    padding: 0px;
+    margin: 0px;
+    width: 368px;
+    font-size: 12px;
+
+}
+
+#recipe .ingredientRight {
+    float: left;
+    padding: 0px;
+    margin: 0px;
+    width: 369px;
+    font-size: 12px;
+
+}
+
+#recipe .fsection {
+    float: left;
+    clear: left;
+    border-color: #84BC4A;
+    border-style: solid;
+    border-radius: 0px 0px 9px 9px;
+    padding: 0px;
+    margin: 0px;
+    width: 744px;
+    font-size: 9px;
+}
+
+#recipe .lsection {
+    float: right;
+    border: solid #84BC4A;
+    border-radius: 9px 9px 9px 9px;
+    padding: 0px;
+    margin: 0px;
+    width: 300px;
+    font-size: 12px;
+}
+
+#recipe ul.section {
+    float: left;
+    clear: left;
+    list-style-type: none;
+}
+
+#recipe ul.section li, #recipe ul.ingredientLeft li, #recipe ul.ingredientRight li {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    background-color: #FFFFFF;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #CCCCCC;
+    padding: 1px;
+    margin: 6px;
+    cursor: pointer;
+}
+
+#recipe ul.annotations {
+    float: right;
+    list-style-type: none;
+    padding: 0px;
+    margin-left: 9px;
+    margin-right: 9px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+#recipe ul.annotations li {
+    display: inline;
+}
+
+#recipe table.section {
+    padding: 2px;
+    width: 750px;
+    font-size: 12px;
+}
+
+#recipe table.section tr td {
+    width: 25%;
+}
+
+#recipe table.section tr td.heading {
+    background-color: #EAF2D3;
+}
+
+#recipe .navprevious {
+    float: left;
+}
+
+#recipe .navnext {
+    float: right;
+}
+
+.container {
+    overflow: hidden;
+    width: 744px;
+    border: solid #84BC4A;
+    border-radius: 0px 9px 9px 9px;
+}

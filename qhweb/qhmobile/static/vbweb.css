@@ -1,0 +1,55 @@
+#popup { position:absolute;
+    top:20px;
+    left:50%;
+    width:600px;  /* adjust as per your needs */
+    height: 776px;   /* adjust as per your needs */
+    margin-left:-300px;   /* negative half of width above */
+    /*margin-top:-388px;   *//* negative half of height above */
+    z-index: 100;
+    background: #ffffff;
+    -moz-box-shadow: 3px 3px 4px #000;
+    -webkit-box-shadow: 3px 3px 4px #000;
+    box-shadow: 3px 3px 4px #000;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+
+#popup .close {float: right;
+    clear: right;
+    padding: 5px;
+    font-size: 20px;
+
+}
+
+#popup iframe {
+    width:135%;height:135%;border: 0;
+    zoom: 0.73;
+    -moz-tra8sform: scale(0.73);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.73);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.73);
+    -webkit-transform-origin: 0 0;
+
+}
+
+.pageFrame  { width: 200%; height:200%; border: 0;
+    zoom: 0.48;
+    -moz-tra8sform: scale(0.48);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.48);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.48);
+    -webkit-transform-origin: 0 0;
+}
+
+.control {
+    position: absolute;
+    left: 280px;
+    z-index: 100;
+    opacity: 50;
+    background-color: #81ff35;
+    font-size: 12px;
+}

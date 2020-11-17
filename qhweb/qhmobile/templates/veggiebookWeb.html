@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>VeggieBook</title>
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!-- required files for booklet -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/static/booklet/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="/static/booklet/jquery.booklet.latest.js" type="text/javascript"></script>
+    <link href="/static/booklet/jquery.booklet.latest.css" type="text/css" rel="stylesheet" media="screen, projection, tv" />
+    <link href="/static/vbweb.css" type="text/css" rel="stylesheet" media="screen, projection, tv" />
+
+    <style>
+        #toc {
+            height: 100%;
+            background-color: #ffffff;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            var mybook = $("#mybook").booklet({
+                width:  820,
+                height: 520,
+                menu: '#custom-menu',
+                pageSelector: false,
+                chapterSelector: false,
+                hash: true,
+                keyboard: true,
+                closed: false, pageNumbers: true,
+                tabs: true, pagePadding: 0
+            });
+
+
+        });
+
+        function open_win(url)
+        {
+            window.open(url,"vbwin","toolbar=yes, location=yes, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes, width=820, height=600");
+        };
+    </script>
+
+</head>
+<body>
+<section>
+
+    <div id="custom-menu"></div>
+    <div id="mybook">
+
+        <div title="{{ rb.foodStuff.nameString.en }}">
+            <iframe class="pageFrame" src="{{ coverUrl }}"><p>Your browser does not support iframes.</p></iframe>
+        </div>
+        <div id="toc" title="Information">
+            <h4> <a href="/qhmobile/veggieBookPdf/en/{{  rb.id }}/">Download PDF</a></h4>
+
+            <h4>Recipes</h4>
+               <ul>
+            {% for recipe in rb.getSelectedRecipes %}
+               <li><a href="#/page/{{ forloop.counter|add:2 }}">{{ recipe.title.en }}</a></li>
+
+            {% endfor %}
+
+               </ul>
+        </div>
+
+        {% for rurl in recipeUrls %}
+        <div title="Recipe">
+            <button class="control" onclick="open_win('{{ rurl }}')">Full Size</button>
+            <iframe class="pageFrame" src="{{ rurl }}"></iframe>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<footer></footer>
+</body>
+</html>

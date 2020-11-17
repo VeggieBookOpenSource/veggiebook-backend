@@ -1,0 +1,33 @@
+#!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+#use deve settings
+mkdir -p /etc/qhmobile
+chmod a+r /etc/qhmobile
+ln -svf $DIR/conf/develop-settings.ini /etc/qhmobile/settings.ini
+
+#make sure static files are in the correct place
+ln -svf $DIR/opt/qhmobile /opt
+
+#use the latest and greatest nginx configuration
+rm -f /etc/nginx/sites-enabled/default
+ln -svf $DIR/etc/nginx/sites-enabled/default /etc/nginx/sites-enabled/default
+
+#use the latest supervisor configuration
+cp -f $DIR/etc/supervisor/conf.d/gunicorn_django.conf /etc/supervisor/conf.d/
+
+#reread the config with supervisor
+supervisorctl reread
+
+cd $DIR
+$DIR/manage.py migrate
+
+#restart the app
+supervisorctl restart quickhelp
+
+#restart nginx
+service nginx restart
+
+#sleep to let nginx startup
+sleep 10
+

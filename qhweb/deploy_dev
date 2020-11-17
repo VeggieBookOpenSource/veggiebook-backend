@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+#This is not an actual deployment, but run from the dev machine itself
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+cd $DIR
+git checkout develop
+git pull origin develop
+
+$DIR/ubuntu-provisioning
+sudo $DIR/use-dev
+

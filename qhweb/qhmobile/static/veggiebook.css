@@ -1,0 +1,280 @@
+@font-face {
+    font-family: Parry;
+    src: url("/static/fonts/Parry-Normal.otf");
+}
+
+@font-face {
+    font-family: Parry;
+    font-weight: bold;
+    src: url("/static/fonts/Parry-Bold.otf");
+}
+
+@font-face {
+    font-family: Parry;
+    font-style: italic;
+    src: url("/static/fonts/Parry-NormalItalic.otf");
+}
+
+@font-face {
+    font-family: ParryGrotesque;
+    src: url("/static/fonts/ParryGrotesque-Normal.otf");
+}
+
+@font-face {
+    font-family: ParryGrotesque;
+    font-weight: bold;
+    src: url("/static/fonts/ParryGrotesque-Bold.otf");
+}
+
+@font-face {
+    font-family: ParryGrotesque;
+    font-style: italic;
+    src: url("/static/fonts/ParryGrotesque-NormalItalic.otf");
+}
+
+#recipe {
+    width: 300px;
+    font-family: sans-serif;
+    position: relative;
+}
+
+#recipe h1 {
+    color: #ffffff;
+    background-color: #84BC4A;
+    border-radius: 12px 12px 0px 0px;
+    padding-top: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-bottom: 0px;
+
+}
+
+#recipe h1.title {
+    font-size: 20px;
+    width: 288px;
+    border-top-left-radius: 0px;
+    margin-top: 0px;
+    float: left;
+    clear: left;
+}
+
+#recipe h2.subtitle {
+    color: #000000;
+    background-color: #84BC4A;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 10px;
+    font-style: italic;
+
+}
+
+#recipe img.recipeImage {
+    width: inherit;
+
+}
+
+#recipe h1.sectionHeader {
+    float: left;
+    clear: left;
+    font-size: 14px;
+}
+
+#recipe .section {
+    float: left;
+    clear: left;
+    border-color: #84BC4A;
+    border-style: solid;
+    border-radius: 0px 9px 9px 9px;
+    padding: 0px;
+    margin: 0px;
+    width: 294px;
+    font-size: 12px;
+}
+
+
+#recipe .fsection {
+    float: left;
+    clear: left;
+    border-color: #84BC4A;
+    border-style: solid;
+    border-radius: 0px 0px 9px 9px;
+    padding: 0px;
+    margin: 0px;
+    width: 294px;
+    font-size: 9px;
+}
+
+#recipe .fsection p,
+#recipe .section p,
+#recipe .section li{
+    padding: 10px;
+    font-size: 14px;
+    margin: 0;
+}
+
+#recipe .lsection {
+    float: left;
+    clear: left;
+    border-color: #84BC4A;
+    border-style: solid;
+    border-radius: 9px 9px 9px 9px;
+    padding: 0px;
+    margin: 0px;
+    width: 294px;
+    font-size: 12px;
+}
+
+#recipe ul.section {
+    float: left;
+    clear: left;
+    list-style-type: none;
+
+}
+
+#recipe ul.section li {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    background-color: #FFFFFF;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #CCCCCC;
+
+    padding: 1px;
+    margin: 6px;
+    cursor: pointer;
+}
+
+#recipe div.annotations {
+    float: left;
+    clear: left;
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+    font-family: Parry, serif;
+    color: #FFFFFF;
+}
+
+#recipe div.annotations div {
+    float: left;
+    margin-bottom: 0px;
+    padding-top: 2px;
+    padding-bottom: 1px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.clearit {
+    clear: both;
+}
+
+.tipSection {
+    font-family: sans-serif;
+    width: 300px;
+
+}
+
+.pagebreak {
+    width: 1px;
+    height: 1px;
+    page-break-before: always;
+
+}
+
+.tipImage {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    float: left;
+    clear: both;
+    width: 100px;
+    border-radius: 8px 8px 8px 8px;
+    margin-top: 2px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    -webkit-box-shadow: 2px -2px 10px 1px #84BC4A;
+
+}
+
+.tipImage img {
+    width: 100px;
+    opacity: 0;
+}
+
+h1.tipHeader {
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #84BC4A;
+    border-radius: 12px 12px 0px 0px;
+    padding-top: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-bottom: 0px;
+    overflow: hidden;
+}
+
+.tipBody {
+    border-color: #84BC4A;
+    border-style: solid;
+    border-radius: 0px 0px 9px 9px;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.tipBody ul {
+    margin: 2px;
+    padding: 0px;
+}
+
+.tipBody li {
+    font-size: 12px;
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    background-color: #FFFFFF;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #CCCCCC;
+    padding: 1px;
+    margin: 6px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#recipe table.section {
+    padding: 2px;
+    width: 300px;
+    font-size: 12px;
+}
+
+#recipe table.section tr td.heading {
+    width: 30%;
+    background-color: #EAF2D3;
+}
+
+#recipe .navprevious {
+    float: left;
+}
+
+#recipe .navnext {
+    float: right;
+}
+
+.pagebreak {
+            width: 1px;
+            height: 1px;
+            page-break-before: always;
+        }
+.secret-even {
+    clear: both;
+    float: left;
+
+}
+
+.secret-odd {
+    float: right;
+    margin: 0 20px;
+}

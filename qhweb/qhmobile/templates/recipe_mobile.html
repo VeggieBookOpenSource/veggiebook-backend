@@ -1,0 +1,77 @@
+{% load qhmobile_extras %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"
+        "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+<html>
+<head>
+    {% if is_ios %}
+        <meta name = "viewport" content = "width = 320, initial-scale = 2.3, user-scalable = no">
+    {% else %}
+        <meta name="viewport" content="width=310" />
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="/static/veggiebook.css?00002">
+    <title>{{ recipe.title.en }}</title>
+</head>
+<body>
+<div id="recipe">
+    <div  class="annotations">
+        {% for annotation in annotations %}
+           <div style="background: #{{ annotation.color }}">{{ annotation.text.en }}</div>
+        {% endfor %}
+    </div>
+    <h1 class="title">{{ recipe.title.en }} </h1>
+
+    <div class="fsection" style="background-image: url({{ recipe.defaultPhoto.photo.img300.url }});">
+        <img  class="recipeImage" style="opacity: 0;" src="{{ recipe.defaultPhoto.photo.img300.url }}" />
+    </div>
+
+
+
+    <h1 class="sectionHeader">Ingredients</h1>
+
+    <ul class="section">
+        {% for i in recipe.recipeingredient_set.all %}
+            <li>{{ i.content.en }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1 class="sectionHeader">Summary</h1>
+    <table class="section">
+        <tr>
+            <td class="heading">Preparation Time:</td><td>{{ recipe.timeToPrepare.en }}</td>
+            <td class="heading">Can be made ahead:</td><td> {{ recipe.canBeMadeAhead.en }}</td>
+        </tr>
+        <tr>
+            <td class="heading">Cooking Time:</td><td>{{ recipe.timeToCook.en }}</td>
+            <td class="heading">Can be frozen:</td><td>{{ recipe.canBeFrozen.en }}</td>
+        </tr>
+        <tr>
+            <td class="heading">Servings:</td><td>{{ recipe.servings.en }}</td>
+            <td class="heading"> Good for leftovers:</td><td>{{ recipe.goodForLeftovers.en }}</td>
+        </tr>
+    </table>
+
+    <h1 class="sectionHeader">Instructions</h1>
+    <ul class="section">
+        {% for s in recipe.getStepAndNotesList %}
+            <li>{{ s.content.en }}</li>
+        {% endfor %}
+    </ul>
+    {% if recipe.recipephoto_set.count > 1 %}
+    <h1 class="sectionHeader">Photos</h1>
+    {% for photo in recipe.recipephoto_set.all %}
+        <div {% if forloop.first %}
+             class="section"
+             {% else %}
+             class="lsection"
+             {% endif %}
+             style="background-image: url({{ photo.photo.img300.url }});">
+        <img class="recipeImage" style="opacity: 0;" src="{{ photo.photo.img300.url }}" />
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+</body>
+</html>
+
+

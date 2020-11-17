@@ -1,0 +1,77 @@
+{% load qhmobile_extras %}
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/mobile.css">
+<title>{{ iidd }} {{ recipe.title.en }}</title>
+</head>
+<body>
+<table class="recipetable">
+  <tr>
+    <td colspan="2" class="title">{{ recipe.title.en }}</td>
+  </tr>
+  <tr>
+    <td colspan="2" class="title">{{ recipe.storyLine.en }}</td>
+  </tr>
+  <tr>
+    <td rowspan="3" width="38%" class="pixpane">
+      {% for photo in recipe.recipephoto_set.all %}
+    <img class="sidebarimage" src="{{ photo.photo.img500.url }}">
+      {% endfor %}
+    </td>
+    <td class="ingredients">
+      <table class="columns ingredients" width="100%">
+	<tr>
+	  <td width="50%">
+	    <ul>
+	      <!-- note firsthalf/secondhalf are filters -->
+	      {% for i in recipe.recipeingredient_set.all|firsthalf %}
+	      <li>{{ i.content.en }}</li>
+	      {% endfor %}
+	    </ul>
+	  </td>
+	  <td width="50%">
+	    <ul>
+	      {% for i in recipe.recipeingredient_set.all|secondhalf %}
+	      <li>{{ i.content.en }}</li>
+	      {% endfor %}
+	    </ul>
+	  </td>
+	</tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td class="characteristics">
+      <table class="columns characteristics" width="100%">
+	<tr>
+	  <td width="50%">
+	    Preparation Time: <span class="characteristic">{{ recipe.timeToPrepare.en }}</span>
+	    <br/>
+	    Cooking Time: <span class="characteristic">{{ recipe.timeToCook.en }}</span>
+	    <br/>
+	    Servings: <span class="characteristic">{{ recipe.servings.en }}</span>
+	  </td>
+	  <td width="50%">
+	    Can be made ahead: <span class="characteristic">{{ recipe.canBeMadeAhead.en }}</span>
+	    <br/>
+	    Can be frozen: <span class="characteristic">{{ recipe.canBeFrozen.en }}</span>
+	    <br/>
+	    Good for leftovers: <span class="characteristic">{{ recipe.goodForLeftovers.en }}</span>
+	  </td>
+	</tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td class="steps">
+    <ul>
+	{% for s in recipe.recipestep_set.all %}
+	<li>{{ s.content.en }}</li>
+	{% endfor %}
+      </ul>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

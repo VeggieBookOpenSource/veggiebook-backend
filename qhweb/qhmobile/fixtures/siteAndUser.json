@@ -1,0 +1,29 @@
+[  {
+    "pk": 1, 
+    "model": "sites.site", 
+    "fields": {
+      "domain": "veggiebook.mobi", 
+      "name": "veggiebook.mobi"
+    }
+  },
+   
+  {
+    "pk": 1, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "qhmobile", 
+      "first_name": "", 
+      "last_name": "", 
+      "is_active": true, 
+      "is_superuser": true, 
+      "is_staff": true, 
+      "last_login": "2013-01-31T22:09:39Z", 
+      "groups": [], 
+      "user_permissions": [], 
+      "password": "pbkdf2_sha256$10000$kYFPaDrhc12Q$bBn2Apc42zCxUq5QazhZgsk+qipfcPEmWfqVjUxI4Dw=", 
+      "email": "ddipasquo@gmail.com", 
+      "date_joined": "2013-01-13T02:11:51Z"
+    }
+  }
+
+]

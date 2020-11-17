@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% if mobile %}
+    <link rel="stylesheet" type="text/css" href="/static/veggiebook.css?00002">
+            <meta name="viewport" content="width=310" />
+
+    {% else %}
+    <style>
+        @font-face {
+            font-family: Parry;
+            src: url("/static/fonts/Parry-Normal.otf");
+        }
+        @font-face {
+            font-family: Parry;
+            font-weight: bold;
+            src: url("/static/fonts/Parry-Bold.otf");
+        }
+        @font-face {
+            font-family: Parry;
+            font-style: italic;
+            src: url("/static/fonts/Parry-NormalItalic.otf");
+        }
+
+        @font-face {
+            font-family: ParryGrotesque;
+            src: url("/static/fonts/ParryGrotesque-Normal.otf");
+        }
+        @font-face {
+            font-family: ParryGrotesque;
+            font-weight: bold;
+            src: url("/static/fonts/ParryGrotesque-Bold.otf");
+        }
+        @font-face {
+            font-family: ParryGrotesque;
+            font-style: italic;
+            src: url("/static/fonts/ParryGrotesque-NormalItalic.otf");
+        }
+
+        .clearit{
+            clear: both;
+        }
+        .tipSection{
+            float: left;
+            margin-right: auto;
+            margin-left: auto;
+            font-family: ParryGrotesque, Verdana, sans-serif;
+            position: relative;
+            width: 800px;
+            font-size: 15px;
+
+        }
+
+        .pagebreak {
+            width: 1px;
+            height: 1px;
+            page-break-before: always;
+
+        }
+
+        .tipImage {
+            display: inline;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            width: 100px;
+            margin-top: 2px;
+            margin-right: 15px;
+            margin-left: 5px;
+            margin-bottom: 5px;
+        }
+        .tipImage img{
+            padding: 0px;
+            margin: 0px;
+            vertical-align: middle;
+
+
+        }
+        h1.tipHeader{
+            float: left;
+            clear: left;
+            color: #ffffff;
+            background-color: #62b149;
+            padding-top: 3px;
+            padding-left: 6px;
+            padding-right: 6px;
+            margin-bottom: 0px;
+
+            font-family: Parry, Times, serif;
+            font-size: 1.4em;
+            font-weight: normal;
+            text-align: left;
+            width: 788px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 15px;
+            font-weight: normal;
+            float: left;
+            clear: left;
+            margin-top: 15px;
+        }
+        .tipBody {
+            float: left;
+            clear: left;
+            padding: 0px;
+            margin: 0px;
+            width: 798px;
+            font-size: 15px;
+            border-color: #62b149;
+            border-style: solid;
+            border-width: 1.5px;
+        }
+
+
+
+
+        .tipBody ul {
+            margin: 10px
+        }
+
+
+        .tipBody li {
+            padding-bottom: 15px;
+            color: #62b149;
+        }
+
+        .listContent{
+            color: #000000;
+            font-family: ParryGrotesque, Geneva, sans-serif;
+            font-weight: normal;
+        }
+
+    </style>
+    {% endif %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+        var pixelsOfHeight = 0;
+        var even = true;
+
+        $(document).ready(function(){
+            $('.tipSection').each(function(){
+                var h = $(this).height();
+
+
+                if(h + pixelsOfHeight > 1000){
+                    pixelsOfHeight = h;
+
+                    $(this).before("<div class=\"pagebreak\"></div>");
+
+                }
+                else {
+                    pixelsOfHeight += h;
+                }
+            })
+            {% if mobile %}
+            $('.tipImage').each(function(){
+                if(!even){
+                    $(this).css("float", "right");
+                    $(this).css("-webkit-box-shadow", "-2px -2px 10px 2px #84BC4A");
+                }
+
+                even = !even;
+
+            })
+            {% endif %}
+
+        })
+    </script>
+    <title>Tips</title>
+</head>
+<body>
+{% for tip in tipList %}
+<div class="tipSection">
+    <h1 class="tipHeader">{{ tip.heading.es }}</h1>
+    <div class="tipBody">
+
+        <ul>
+            {% for orderableTip in tip.orderabletip_set.all %}
+                {% if mobile %}
+                {% if orderableTip.photo %}
+                    <div class="tipImage" style="background-image: url({{ orderableTip.photo.img100.url }});">
+                        <img  src="{{ orderableTip.photo.img100.url }}" />
+                    </div>
+                {% endif %}
+                {% endif %}
+             <li> <span class="listContent"> {{ orderableTip.content.es }} </span></li>
+                {% if not mobile %}
+                    {% if orderableTip.photo %}
+                    <img  src="{{ orderableTip.photo.img100.url }}" />
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+    </ul>
+    </div>
+</div>
+<div class="clearit"> </div>
+{% endfor %}
+</body>
+</html>

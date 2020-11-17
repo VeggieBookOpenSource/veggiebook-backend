@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"
+        "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+<meta name="viewport" content="width=320"/>
+<style>
+#rloading {
+    margin-left: 10px;
+    width: 300px;
+    font-family: sans-serif;
+    position: relative;
+    font-size: 16px;
+}
+
+p {
+    width: inherit;
+}
+
+div.keepdrop {
+    width: 220px;
+    height: 76px;
+    background-image: url("img_es/intro_001.jpeg");
+    margin-left: 15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position: relative;
+}
+
+.keepdropb, .choosea, .chooseb {
+    position: absolute;
+    left:  0px;
+    top: 0px;
+    opacity: 0;
+
+}
+div.chooseExtra {
+    width: 220px;
+    height: 76px;
+    background-image: url("img_es/intro_009.jpeg");
+    margin-left: 15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position: relative;
+}
+
+.demo
+{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+
+}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function(){
+        inAndOut();
+
+    });
+
+    function inAndOut() {
+        $("img.chooseb").css({'opacity': '0'});
+
+        $("img.keepdropb").animate({opacity: 1}, 1000, function(){
+            $("img.choosea").animate({opacity: 1}, 1000, function(){
+                $("img.keepdropb").animate({opacity:0}, 1000, function(){
+                    $("img.chooseb").animate({opacity: 1}, 1000,function(){
+                        $("img.choosea").animate({opacity: 0}, 1000,inAndOut);
+                    });
+                    });
+                });
+            });
+
+    };
+
+
+
+</script>
+
+</head>
+<body>
+<div id="rloading">
+    <h4 class="info">Estamos creando su VeggieBook.</h4>
+    <h4>A continuación, revise su selección de recetas. Quédese con las que quiera, y elimine las que no quiera.</h4>
+
+
+    <h4 class="demo">Para eliminar una receta, cambie la asignación de ESCOGER a DESECHAR:</h4>
+    <div class="keepdrop">
+    <img class="keepdropb" src="img_es/intro_005.jpeg"></div>
+    <h4 class="demo">También puede imprimir copias extras si desea compartirlas:</h4>
+    <div class="chooseExtra">
+        <img class="choosea" src="img_es/intro_0011.jpeg" />
+        <img class="chooseb" src="img_es/intro_0012.jpeg" />
+    </div>
+
+
+
+</div>
+
+</body>
+</html>
